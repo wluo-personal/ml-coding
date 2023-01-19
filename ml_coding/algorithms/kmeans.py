@@ -9,6 +9,15 @@ class KMeans:
         self.SMALL_ = 1e-5
 
     def assign_new_centroid(self, X, assignment):
+        """
+        calculate the new centroid given current assignment
+        :param X: original data to be fitted
+        :param assignment: 1D array of length X.shape[0], where the value
+            is any in (0, K), which indicate the which centroid the X[i] belongs
+            to
+        :return:
+            new centroid
+        """
         centroids = []
         for value in range(self.K_):
             mask = assignment == value
