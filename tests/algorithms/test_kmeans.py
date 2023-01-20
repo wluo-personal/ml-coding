@@ -28,6 +28,6 @@ def test_kmeans():
             raise ValueError(f"The center {each_ori_center} is not close "
                              f"to any fitted center.")
 
-if __name__ == "__main__":
-    test_kmeans()
+# if __name__ == "__main__":
+#     test_kmeans()
 

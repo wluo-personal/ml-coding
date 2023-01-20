@@ -72,14 +72,10 @@ class KMeans:
         centroids = np.array(centroids)
         return centroids.T
 
-
-
-
-
-
-    def iterate(self, X, centroid, previous_error):
-        # 1. find error -> matrix[M * N], where M is the X.shape[0], N == K
-        # each entry represent the distance between data X[M] to center[K]
-
-        # 2.
-        pass
+    def transform(self, X):
+        """
+        :param X: 2D array <# of records, features>
+        :return: 1D array
+        """
+        errors = self.calculate_error(X, self.centroids)
+        return np.argmin(errors, axis=1)
