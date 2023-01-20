@@ -1,4 +1,14 @@
 import numpy as np
+"""
+steps:
+1. initial K centers randomly
+2. Loop
+    (1) calculate distance between each points to each center
+    (2) LOSS = sum(distance to closed center)
+    (3) if LOSS decrease continue else break
+    (4) Assigen center for each data points
+    (5) For each cluster recalculate the center
+"""
 
 class KMeans:
 
