@@ -31,6 +31,7 @@ class KMeans:
         :param X:
         :param centroids:
         :return: matrix with same shape <X.shape[0], K>
+            matrix[i][j] means the distance between data point i to jth center
         """
         errors = []
         for each in centroids:
