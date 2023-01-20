@@ -1,6 +1,15 @@
 import numpy as np
 from collections import Counter
-
+"""
+For this implementation, there are several crucial parts
+1. Recursive -- To build subtrees
+2. This decision tree only support classification
+3. How to decide split? 
+    Support Gini gain and information gain
+4. Keep in mind:
+    leaf node is used to give a prediction
+    node is used to make a decision
+"""
 class Node:
     def __init__(
             self,
@@ -9,6 +18,14 @@ class Node:
             left=None,
             right=None,
             value=None):
+        """
+
+        :param feature: Int, the index of the feature
+        :param threshold: number
+        :param left: left tree. If X[feature] <= threshold
+        :param right: right tree. If X[feature] > threshold
+        :param value: None - for node, some value for leaf node.
+        """
         self.feature = feature
         self.threshold = threshold
         self.left = left
@@ -30,6 +47,7 @@ class Gain:
         # print(counts)
         for c in counts:
             p = c / N
+            # 1e-9 is used to avoid log2(0)
             entropy -= p * np.log2(p + 1e-9)
         return entropy
 
@@ -109,7 +127,7 @@ class DecisionTree:
                         depth=depth+1),
                 )
                 return root
-        ### leave node
+        ### leaf node
         node = Node(value=Counter(y).most_common(1)[0][0])
         return node
 
