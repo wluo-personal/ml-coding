@@ -10,6 +10,8 @@ packages = [{include = "ml_coding"}]
 python = "^3.11"
 numpy = "*"
 scikit-learn = ">=1.2"
+torch = "*"
+torchvision = "*"
 
 
 [build-system]
